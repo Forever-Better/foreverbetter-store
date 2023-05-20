@@ -19,7 +19,7 @@ export default function Product({ data }: { data: any }) {
           <div className='flex items-center gap-2'>
             <span>{data.colors[0]}</span>
             <span className='flex gap-1'>
-              {data.colors.map((color) => (
+              {data.colors.map((color: string) => (
                 <span className='w-[10px] h-[10px]' style={{ backgroundColor: color }} />
               ))}
             </span>

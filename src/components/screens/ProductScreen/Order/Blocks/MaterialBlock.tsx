@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function MaterialBlock({ data }: { data: string[] }) {
+export default function MaterialBlock({ data }: { data: [] }) {
   return (
     <div className='flex'>
       <span className='w-40'>Material</span>
