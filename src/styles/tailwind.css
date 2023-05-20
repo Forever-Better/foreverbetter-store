@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .primary-button {
+    transition: ease-out 0.2s;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+}

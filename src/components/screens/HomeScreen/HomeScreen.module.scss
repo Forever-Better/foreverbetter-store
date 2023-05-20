@@ -1,0 +1,22 @@
+@use '@/styles/util' as *;
+
+.cont {
+  position: relative;
+  @include breakpoint-down(lg) {
+    img {
+      height: 640px !important;
+      object-fit: cover;
+    }
+  }
+
+  .info {
+    position: absolute;
+    top: 32px;
+    left: 36px;
+
+    h2 {
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+}

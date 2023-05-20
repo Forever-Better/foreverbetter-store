@@ -1,0 +1,76 @@
+.menuDropdown {
+  position: absolute;
+  top: 56px;
+  left: 0;
+  right: 0;
+  max-height: 800px;
+  padding: 18px 40px 12px;
+  opacity: 0;
+  visibility: hidden;
+  overflow: hidden;
+  background-color: #ffffff;
+  transform: scaleY(0);
+  // transition: transform 0.1s ease, opacity 0ms linear 0.1s, visibility 0ms linear 0.1s;
+  transform-origin: top center;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 100px;
+  max-width: 1340px;
+  margin-left: auto;
+  margin-right: auto;
+
+  span {
+    font-size: 12px;
+    font-weight: 300;
+  }
+}
+
+.menuColumns {
+  display: flex;
+}
+
+.menuColumn {
+  display: inline-block;
+  width: 200px;
+  // transition: transform 0.1s, opacity 0.1s;
+  // transition-delay: 0s, 0s;
+  // transition-delay: 0s;
+}
+
+.isFocused .menuColumn {
+  opacity: 1;
+  transform: translateY(0);
+  // transition: transform 0.1s, opacity 0.1s;
+  // transition-delay: 0s;
+}
+
+.menuColumnHeader {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 36px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.menuColumnItem {
+  text-align: left;
+  background: transparent;
+  display: block;
+  margin-bottom: 16px;
+  font-size: 12px;
+  font-weight: 300;
+  white-space: normal;
+  overflow-wrap: normal;
+}
+
+.isFocused {
+  transform: scaleY(1);
+  opacity: 1;
+  visibility: visible;
+  // transition: transform 0.25s easy, opacity 0ms, visibility 0ms;
+}

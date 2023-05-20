@@ -1,0 +1,13 @@
+.root {
+  position: relative;
+  width: 150px;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 300;
+
+  &::after {
+    content: '>';
+    position: absolute;
+    right: 0;
+  }
+}

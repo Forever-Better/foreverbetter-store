@@ -1,0 +1,38 @@
+@use '../util' as *;
+
+.layout {
+  display: grid;
+  grid-template-columns: 5fr 3fr;
+  gap: 16px;
+  @include breakpoint-down(md) {
+    grid-template-columns: auto;
+  }
+}
+
+.block {
+  padding: 4px 8px 12px;
+  border-radius: 12px;
+  background-color: var(--vkui--color_background_content);
+}
+
+.block-fluid {
+  padding: 16px 18px;
+  border-radius: 12px;
+  background-color: var(--vkui--color_background_content);
+}
+
+.hidden {
+  position: absolute;
+  overflow: 0;
+  width: 0;
+  height: 0;
+  line-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.text-on-surface-variant {
+  color: var(--md-sys-color-on-surface-variant);
+}

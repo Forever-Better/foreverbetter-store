@@ -1,0 +1,18 @@
+.swiper-pagination {
+  bottom: 18px !important;
+}
+
+.swiper-pagination-bullet {
+  width: 18px;
+  height: 1px;
+  background: var(--md-sys-color-neutral);
+  transform: unset !important;
+}
+.swiper-pagination-bullet-active {
+  width: 18px;
+
+  background: black;
+}
+.swiper-pagination-bullet-active-main {
+  width: 18px;
+}

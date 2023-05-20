@@ -1,0 +1,41 @@
+.root {
+  .nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid black;
+
+    .navList {
+      .listItem {
+        &:not(:last-child)::after {
+          content: '>';
+          margin: 0 6px;
+        }
+      }
+    }
+  }
+
+  .sub {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    border-bottom: 1px solid black;
+
+    .sortList {
+      gap: 32px;
+    }
+  }
+
+  ul {
+    display: flex;
+    align-items: center;
+    margin: 0;
+
+    li {
+      margin: 0;
+      font-size: 14px;
+      font-weight: 300;
+    }
+  }
+}

@@ -1,0 +1,41 @@
+* {
+  &:not(svg) {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+html {
+  transition: background-color 0.15s, color 0.25s;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+ul {
+  margin: 0 !important;
+  list-style: none;
+}
+
+li {
+  margin: 0 !important;
+}
+
+a {
+  color: inherit !important;
+  text-decoration: none;
+}
+
+textarea {
+  font-family: inherit;
+}
