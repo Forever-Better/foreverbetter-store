@@ -7,8 +7,8 @@ export const getPublicUrl = {
   login() {
     return UrlTemplates.Login;
   },
-  signup() {
-    return UrlTemplates.Signup;
+  register() {
+    return UrlTemplates.Register;
   },
   cart() {
     return UrlTemplates.Cart;

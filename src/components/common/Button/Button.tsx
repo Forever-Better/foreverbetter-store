@@ -1,18 +1,38 @@
 import clsx from 'clsx';
 import React from 'react';
 
-interface ButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
+import { Spinner } from '../Spinner/Spinner';
+
+interface ButtonProps extends ReactTagProps<'button'> {
   children: React.ReactNode;
+  variant?: 'primary' | 'secondary' | 'accent';
   stretched?: boolean;
+  loading?: boolean;
 }
 
-export default function Button({ children, className, stretched = true, ...restProps }: ButtonProps) {
+export default function Button({
+  children,
+  className,
+  disabled,
+  loading = false,
+  stretched = true,
+  variant = 'primary',
+  ...restProps
+}: ButtonProps) {
   return (
     <button
-      className={clsx('h-8 border-black border border-solid text-xs primary-button', stretched && 'w-full', className)}
+      disabled={loading || disabled}
+      className={clsx(
+        'h-8 border-black border border-solid text-xs disabled:bg-opacity-40',
+        stretched && 'w-full',
+        variant === 'primary' && 'primary-button',
+        variant === 'secondary' && 'secondary-button',
+        variant === 'accent' && 'accent-button',
+        className
+      )}
       {...restProps}
     >
-      {children}
+      {loading ? <Spinner color='red' size='sm' /> : children}
     </button>
   );
 }

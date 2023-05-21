@@ -1,13 +1,20 @@
 import CartItem from '../CartItem/CartItem';
 
 export default function Bag({ data }: { data: any }) {
+  // if (!data.length) return <div className=''>Shopping Bag is Empty.</div>;
+
   return (
-    <div>
-      <h1 className='text-base font-medium'>BAG</h1>
-      <ul>
-        <li>
-          <CartItem data={data[0]} />
-        </li>
+    <div className='w-[55%]'>
+      <ul className='flex flex-col'>
+        {data.length ? (
+          data.map((item) => (
+            <li key={item.id} className='border-b border-solid border-black py-4'>
+              <CartItem data={item} />
+            </li>
+          ))
+        ) : (
+          <div className=''>Shopping Bag is Empty.</div>
+        )}
       </ul>
     </div>
   );

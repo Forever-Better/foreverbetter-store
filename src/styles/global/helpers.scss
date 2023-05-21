@@ -21,7 +21,7 @@
   background-color: var(--vkui--color_background_content);
 }
 
-.hidden {
+.vissualy-hidden {
   position: absolute;
   overflow: 0;
   width: 0;
@@ -29,6 +29,7 @@
   line-height: 0;
   overflow: hidden;
   visibility: hidden;
+  clip: rect(1px, 1px, 1px, 1px);
   padding: 0;
   margin: 0;
 }

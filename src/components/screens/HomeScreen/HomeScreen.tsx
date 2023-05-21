@@ -1,6 +1,10 @@
 /* eslint-disable react/no-unescaped-entities */
+
+'use client';
+
 import clsx from 'clsx';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 import newCollection from '@/assets/new_collection.jpg';
 import secondCollection from '@/assets/second_collection.jpg';
@@ -9,6 +13,7 @@ import ArrowButton from '@/components/common/ArrowButton/ArrowButton';
 import styles from './HomeScreen.module.scss';
 
 export default function HomeScreen() {
+  const router = useRouter();
   return (
     <section>
       <article>
@@ -27,7 +32,7 @@ export default function HomeScreen() {
             <h2 className='mb-2'>
               The 2 <sup>nd</sup> drop of 23SS ‘Through Editism’ Collection
             </h2>
-            <ArrowButton>View Product</ArrowButton>
+            <ArrowButton onClick={() => router.push('/category/a')}>View Product</ArrowButton>
           </div>
         </div>
         <div className={styles.cont}>

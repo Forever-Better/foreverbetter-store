@@ -29,7 +29,7 @@ export default function Header() {
         <IconButton onClick={() => router.push(getPublicUrl.cart())}>
           <Buy set='broken' />
         </IconButton>
-        <IconButton onClick={() => router.push(getPublicUrl.signup())}>
+        <IconButton onClick={() => router.push(getPublicUrl.login())}>
           <User set='broken' />
         </IconButton>
       </div>

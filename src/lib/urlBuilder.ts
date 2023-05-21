@@ -6,6 +6,6 @@ export enum UrlTemplates {
   Favorites = '/favorites',
   Category = '/category',
   Product = '/product',
-  Login = '/',
-  Signup = '/signup'
+  Login = '/login',
+  Register = '/register'
 }

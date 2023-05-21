@@ -4,8 +4,8 @@ export const getApiUrl = {
   login() {
     return ApiUrlTemplates.Login;
   },
-  signup() {
-    return ApiUrlTemplates.Signup;
+  register() {
+    return ApiUrlTemplates.Register;
   },
   refresh() {
     return ApiUrlTemplates.Refresh;

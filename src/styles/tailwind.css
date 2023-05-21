@@ -4,11 +4,31 @@
 
 @layer components {
   .primary-button {
+    background-color: black;
+    color: white;
+    transition: ease-out 0.2s;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+    &:disabled {
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+  }
+  .secondary-button {
+    background-color: white;
+    color: black;
     transition: ease-out 0.2s;
 
     &:hover {
       background-color: black;
       color: white;
     }
+  }
+  .accent-button {
+    background-color: var(--md-sys-color-primary);
+    color: white;
+    border: none !important;
+    transition: ease-out 0.2s;
   }
 }

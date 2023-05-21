@@ -1,8 +1,9 @@
 import Layout from '@/components/layout/Layout';
+
 import '@/styles/tailwind.css';
 import '@/styles/styles.scss';
 
-// const inter = Poppins({ subsets: ['latin'], weight: ['200', '300', '400', '500', '700'] });
+// const inter = Nunito({ subsets: ['latin'], weight: ['200', '300', '400', '500', '700'] });
 
 export const metadata = {
   title: 'FOREVERBETTER Official Site',

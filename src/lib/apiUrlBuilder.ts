@@ -1,6 +1,6 @@
 export enum ApiUrlTemplates {
-  Login = '/auth/login',
-  Signup = '/auth/signup',
+  Login = '/api/auth/login',
+  Register = '/api/auth/register',
   Refresh = '/auth/refresh',
   Profile = '/auth/profile',
   Users = '/users',
