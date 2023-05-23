@@ -1,5 +1,3 @@
-'use client';
-
 import CartScreen from '@/components/screens/CartScreen/CartScreen';
 
 export default function Cart() {

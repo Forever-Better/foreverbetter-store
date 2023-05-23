@@ -1,4 +1,4 @@
-import type { Metadata, ResolvingMetadata } from 'next';
+import type { Metadata } from 'next';
 
 import ProductScreen from '@/components/screens/ProductScreen/ProductScreen';
 
@@ -6,7 +6,7 @@ type Props = {
   params: { id: string };
 };
 
-export async function generateMetadata({ params }: Props, parent?: ResolvingMetadata): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const data = await fetch(`${process.env.CLIENT_URL}/api/products/${params.id}`, { next: { revalidate: 60 } }).then(
     (res) => res.json()
   );

@@ -5,7 +5,7 @@ export default function Bag({ data }: { data: any }) {
     <div className='w-[55%]'>
       <ul className='flex flex-col'>
         {data.length ? (
-          data?.map((item) => (
+          data?.map((item: any) => (
             <li key={item.id} className='border-b border-solid border-black py-4'>
               <CartItem data={item} />
             </li>
