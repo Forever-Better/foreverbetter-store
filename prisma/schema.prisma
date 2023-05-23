@@ -10,17 +10,32 @@ datasource db {
   shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
 }
 
-model user {
+model User {
   id        Int      @id @default(autoincrement())
   email     String   @unique
   password  String 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  cart      cart?
+  cart      Cart[]
 }
 
-model cart {
+model Product {
+  id              Int     @id @default(autoincrement())
+  name            String
+  price           String
+  salePrice       String
+  size            Json[]
+  color           Json
+  availableColors Json[]
+  material        Json[]
+  mainImage       String
+  images          String[]
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}
+
+model Cart {
   id        Int      @id @default(autoincrement())
   userId    Int?     @unique
-  user      user?    @relation(fields: [userId], references: [id])
+  user      User?    @relation(fields: [userId], references: [id])
 }

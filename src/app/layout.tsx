@@ -1,5 +1,6 @@
-import Layout from '@/components/layout/Layout';
+import { Toaster } from 'react-hot-toast';
 
+import Layout from '@/components/layout/Layout';
 import '@/styles/tailwind.css';
 import '@/styles/styles.scss';
 
@@ -15,6 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='en'>
       <body>
+        <Toaster position='bottom-center' />
         <Layout>
           <section>{children}</section>
         </Layout>

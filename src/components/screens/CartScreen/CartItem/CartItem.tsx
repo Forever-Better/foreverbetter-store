@@ -16,7 +16,7 @@ export default function CartItem({ data }: { data: any }) {
           alt={data.title}
           className='h-[160px] max-w-none'
           height={160}
-          src={data.cover}
+          src={`http://127.0.0.1:1337${data.attributes.cover.data.attributes.url}`}
           style={{ objectFit: 'cover' }}
           width={160}
         />
@@ -30,10 +30,10 @@ export default function CartItem({ data }: { data: any }) {
               </Link>
               <span>{data.price}</span>
             </div>
-            <ColorInfo data={data.colors} />
+            <ColorInfo data={data.attributes.colors} />
           </div>
           <div className='flex gap-3'>
-            <SizeBlock data={data.sizes} selectedSize='m' />
+            <SizeBlock data={data.attributes.sizes} selectedSize='m' />
             <QuantityBlock maxQuantity={10} quantity={3} />
           </div>
         </div>

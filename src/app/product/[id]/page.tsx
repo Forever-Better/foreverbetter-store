@@ -1,21 +1,25 @@
-import type { Metadata } from 'next';
-import React from 'react';
+import type { Metadata, ResolvingMetadata } from 'next';
 
 import ProductScreen from '@/components/screens/ProductScreen/ProductScreen';
-import { productListData } from '@/lib/productListData';
 
 type Props = {
   params: { id: string };
 };
 
-const data = productListData;
+export async function generateMetadata({ params }: Props, parent?: ResolvingMetadata): Promise<Metadata> {
+  const data = await fetch(`${process.env.CLIENT_URL}/api/products/${params.id}`, { next: { revalidate: 60 } }).then(
+    (res) => res.json()
+  );
 
-export function generateMetadata({ params }: Props): Metadata {
   return {
-    title: data[+params.id].title
+    title: `${data.name} - FOREVERBETTER Official Site`
   };
 }
 
-export default function ProductPage({ params }: Props) {
-  return <ProductScreen data={data[+params.id]} />;
+export default async function ProductPage({ params }: Props) {
+  const data = await fetch(`${process.env.CLIENT_URL}/api/products/${params.id}`, { next: { revalidate: 60 } }).then(
+    (res) => res.json()
+  );
+
+  return <ProductScreen data={data} />;
 }

@@ -4,15 +4,15 @@ import Product from '@/components/Product/Product';
 import IconButton from '@/components/common/IconButton/IconButton';
 import { Heart2 } from '@/components/icons/Heart2';
 import { getPublicUrl } from '@/helpers/getPublicUrl';
-import { productListData } from '@/lib/productListData';
+import type { Product as IProduct } from '@/types/product.interface';
 
 import styles from './CategoryScreen.module.scss';
 
-export default function CategoryScreen() {
+export default function CategoryScreen({ data }: { data: IProduct[] }) {
   return (
     <div className={styles.root}>
       <ul className={styles.list}>
-        {productListData.map((item) => (
+        {data?.map((item) => (
           <li key={item.id} className='relative'>
             <Link href={getPublicUrl.product(item.id)}>
               {' '}

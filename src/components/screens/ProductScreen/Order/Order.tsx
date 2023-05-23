@@ -1,9 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
 
-import type { ProductOrderFields } from '@/types/product-order-fields.interface';
+import type { Product } from '@/types/product.interface';
 
 import ActionsBlock from './Blocks/ActionsBlock';
 import CareBlock from './Blocks/CareBlock';
@@ -13,8 +12,7 @@ import SizeInfoBlock from './Blocks/SizeInfoBlock';
 import SizeSelectBlock from './Blocks/SizeSelectBlock';
 import TopBlock from './Blocks/TopBlock';
 
-export default function Order({ data }: { data: any }) {
-  // const {} = useForm<ProductOrderFields>({ defaultValues: {} });
+export default function Order({ data }: { data: Product }) {
   const [orderData, setOrderData] = useState<{ productId: number; size: string | undefined }>({
     productId: data.id,
     size: undefined
@@ -24,12 +22,18 @@ export default function Order({ data }: { data: any }) {
   const onSelectSize = (size: string) => {
     setOrderData(({ productId }) => ({ productId, size }));
   };
+  const addItemToCart = () => {
+    const cartDataFromLs = localStorage.getItem('cart');
+    const cartData = JSON.parse(cartDataFromLs ?? '');
+
+    localStorage.setItem('cart', JSON.stringify([...cartData, data]));
+  };
 
   return (
     <div className='sticky w-2/4 top-0 right-0 h-screen flex items-center'>
       <div className='mx-auto'>
         <div className='w-[510px] text-sm font-light flex flex-col gap-4'>
-          <TopBlock colors={data.colors} price={data.price} title={data.title} />
+          <TopBlock availableColors={data.availableColors} color={data.color} name={data.name} price={data.price} />
           <form
             className='flex flex-col gap-2'
             onSubmit={(e) => {
@@ -40,14 +44,14 @@ export default function Order({ data }: { data: any }) {
             }}
           >
             <SizeSelectBlock
-              data={data.sizes}
+              data={data.size}
               error={isError}
               selectedSize={orderData.size}
               onSelectSize={onSelectSize}
             />
-            <ActionsBlock />
+            <ActionsBlock addItemToCart={addItemToCart} />
           </form>
-          <MaterialBlock data={data.materials} />
+          <MaterialBlock data={data.material} />
           <DetailBlock />
           <CareBlock />
           <SizeInfoBlock />

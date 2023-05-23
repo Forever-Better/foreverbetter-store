@@ -1,16 +1,18 @@
-import React from 'react';
+import type { Product } from '@/types/product.interface';
 
 import ColorBlock from './ColorBlock';
 
-export default function TopBlock({ colors, price, title }: { colors: string[]; title: string; price: number }) {
+type TopBlockProps = Pick<Product, 'name' | 'price' | 'color' | 'availableColors'>;
+
+export default function TopBlock({ availableColors, color, name, price }: TopBlockProps) {
   return (
     <div>
       {' '}
       <div className='flex justify-between items-center'>
-        <h1 className='text-sm font-normal'>{title}</h1>
+        <h1 className='text-sm font-normal'>{name}</h1>
         <span>{price}</span>
       </div>
-      <ColorBlock data={colors} />
+      <ColorBlock data={{ availableColors, color }} />
     </div>
   );
 }
