@@ -10,7 +10,7 @@ export default function ColorInfo({ data }: { data: Pick<Product, 'color' | 'ava
       <span className='flex gap-1 items-center'>
         <span className='w-[10px] h-[10px]' style={{ backgroundColor: data.color.value }} />
         {data.availableColors.map(({ productId, value }) => (
-          <Link href={getPublicUrl.product(productId)}>
+          <Link className='flex items-center' href={getPublicUrl.product(productId)}>
             {' '}
             <span className='inline-block w-[10px] h-[10px]' style={{ backgroundColor: value }} />
           </Link>

@@ -1,7 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 
-'use client';
-
 import clsx from 'clsx';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';

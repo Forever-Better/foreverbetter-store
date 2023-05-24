@@ -8,9 +8,9 @@ export default function Gallery({ data }: { data: Product['images'] }) {
       {data.map((item, i) => (
         <Image
           key={i}
-          priority
           alt='Product'
           height={0}
+          priority={i < 1}
           quality={100}
           sizes='100vw'
           src={item}

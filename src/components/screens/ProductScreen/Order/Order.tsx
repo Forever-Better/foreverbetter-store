@@ -1,7 +1,11 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { toast } from 'react-hot-toast';
 
+import { useLocalStorage } from '@/hooks/useLocalStorage';
+import type { CartItem } from '@/types/cart-data.interface';
 import type { Product } from '@/types/product.interface';
 
 import ActionsBlock from './Blocks/ActionsBlock';
@@ -13,20 +17,30 @@ import SizeSelectBlock from './Blocks/SizeSelectBlock';
 import TopBlock from './Blocks/TopBlock';
 
 export default function Order({ data }: { data: Product }) {
-  const [orderData, setOrderData] = useState<{ productId: number; size: string | undefined }>({
-    productId: data.id,
-    size: undefined
-  });
+  const router = useRouter();
+  const [size, setSize] = useState<string | undefined>(undefined);
+  const [order, setOrder] = useLocalStorage<CartItem[]>('cart', []);
   const [isError, setIsError] = useState(false);
 
   const onSelectSize = (size: string) => {
-    setOrderData(({ productId }) => ({ productId, size }));
+    setSize(size);
   };
-  const addItemToCart = () => {
-    const cartDataFromLs = localStorage.getItem('cart');
-    const cartData = JSON.parse(cartDataFromLs ?? '');
 
-    localStorage.setItem('cart', JSON.stringify([...cartData, data]));
+  const addItemToCart = () => {
+    if (!size) return null;
+
+    const findItem = order.find(({ id, selectedSize }) => id === data.id && size === selectedSize);
+
+    if (findItem) {
+      setOrder([
+        ...order.filter(({ id }) => id !== findItem.id),
+        { ...findItem, quantity: findItem.quantity + 1, selectedSize: size }
+      ]);
+    } else {
+      setOrder([...order, { ...data, selectedSize: size, quantity: 1 }]);
+    }
+    router.refresh();
+    toast('Товар добавлен в корзину');
   };
 
   return (
@@ -38,17 +52,12 @@ export default function Order({ data }: { data: Product }) {
             className='flex flex-col gap-2'
             onSubmit={(e) => {
               e.preventDefault();
-              if (!orderData?.size) {
+              if (!size) {
                 return setIsError(true);
               }
             }}
           >
-            <SizeSelectBlock
-              data={data.size}
-              error={isError}
-              selectedSize={orderData.size}
-              onSelectSize={onSelectSize}
-            />
+            <SizeSelectBlock data={data.size} error={isError} selectedSize={size} onSelectSize={onSelectSize} />
             <ActionsBlock addItemToCart={addItemToCart} />
           </form>
           <MaterialBlock data={data.material} />

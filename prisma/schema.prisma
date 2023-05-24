@@ -16,11 +16,10 @@ model User {
   password  String 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
-  cart      Cart[]
 }
 
 model Product {
-  id              Int     @id @default(autoincrement())
+  id              Int      @id @default(autoincrement())
   name            String
   price           String
   salePrice       String
@@ -34,8 +33,9 @@ model Product {
   updatedAt       DateTime @updatedAt
 }
 
-model Cart {
-  id        Int      @id @default(autoincrement())
-  userId    Int?     @unique
-  user      User?    @relation(fields: [userId], references: [id])
-}
+// model Cart {
+//   id        Int      @id @default(autoincrement())
+//   userId    Int?     @unique
+//   user      User?    @relation(fields: [userId], references: [id])
+//   products  Product[]
+// }

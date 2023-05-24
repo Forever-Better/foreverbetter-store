@@ -21,6 +21,7 @@ export default async function CategoryPage({ params }: Props) {
   return (
     <>
       <Nav slug={params.slug} sortItems={['All', 'Cardigan', 'Pullover', 'Vest']} />
+
       <CategoryScreen data={data} />
     </>
   );

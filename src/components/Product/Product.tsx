@@ -1,7 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
 
-import { getPublicUrl } from '@/helpers/getPublicUrl';
 import type { AvailableColor, Product as IProduct } from '@/types/product.interface';
 
 export default function Product({ data }: { data: IProduct }) {
@@ -10,9 +8,9 @@ export default function Product({ data }: { data: IProduct }) {
       <Image
         alt={data.name}
         height={0}
-        priority={data.id <= 4}
+        priority={data.id <= 8}
         quality={100}
-        sizes='50vw'
+        sizes='25vw'
         src={data.mainImage}
         style={{ width: '100%', height: '100%' }}
         width={0}
@@ -24,10 +22,8 @@ export default function Product({ data }: { data: IProduct }) {
             <span>{data.color.color}</span>
             <span className='flex gap-1 items-center'>
               <span className='w-[10px] h-[10px]' style={{ backgroundColor: data.color.value }} />
-              {data.availableColors.map(({ productId, value }: AvailableColor) => (
-                <Link className='inline-block' href={getPublicUrl.product(productId)}>
-                  <span className='inline-block w-[10px] h-[10px]' style={{ backgroundColor: value }} />
-                </Link>
+              {data.availableColors.map(({ value }: AvailableColor) => (
+                <span className='inline-block w-[10px] h-[10px]' style={{ backgroundColor: value }} />
               ))}
             </span>
           </div>

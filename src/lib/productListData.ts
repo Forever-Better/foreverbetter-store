@@ -42,7 +42,7 @@ export const productListData: Product[] = [
     name: 'Montblanc sleeveless',
     price: '328.5',
     salePrice: '0',
-    mainImage: 'https://cafe24img.poxo.com/bbbtan/web/product/big/202303/b9fbfa57cc123367fe859470f880fc70.jpg ',
+    mainImage: 'https://cafe24img.poxo.com/bbbtan/web/product/big/202303/b9fbfa57cc123367fe859470f880fc70.jpg',
     images: [
       'https://cafe24img.poxo.com/bbbtan/2023SS/MAIN%201/BMADSSKT0601MU_1.jpg',
       'https://cafe24img.poxo.com/bbbtan/2023SS/MAIN%201/BMADSSKT0601MU_2.jpg',

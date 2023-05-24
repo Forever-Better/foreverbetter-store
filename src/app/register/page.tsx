@@ -1,6 +1,5 @@
 'use client';
 
-import type { Metadata } from 'next';
 import { useRouter } from 'next/navigation';
 import { getSession } from 'next-auth/react';
 
