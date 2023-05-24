@@ -16,7 +16,7 @@ import Menu from './Menu/Menu';
 
 export default function Header() {
   const router = useRouter();
-  const cartData = (typeof window !== 'undefined' ? JSON.parse(localStorage?.getItem('cart') ?? '') : []) as CartData;
+  const cartData = (typeof window !== 'undefined' ? JSON.parse(localStorage?.getItem('cart') ?? '[]') : []) as CartData;
   const cartLength = cartData.reduce((sum, current) => sum + current.quantity, 0);
 
   return (
